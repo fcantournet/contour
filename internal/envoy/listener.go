@@ -102,6 +102,7 @@ func HTTPConnectionManager(routename, accessLogPath string) listener.Filter {
 					}),
 					"access_log":         accesslog(accessLogPath),
 					"use_remote_address": {Kind: &types.Value_BoolValue{BoolValue: true}}, // TODO(jbeda) should this ever be false?
+					"skip_xff_append":    {Kind: &types.Value_BoolValue{BoolValue: true}}, // TODO(fcantournet) make this a flag
 					"normalize_path":     {Kind: &types.Value_BoolValue{BoolValue: true}},
 				},
 			},
